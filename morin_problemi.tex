@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage{amsmath}
+\title{Problemi di Meccanica Noti}
+\author{Tommaso Pedroni}
+\usepackage[italian]{babel}
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+\section{Statica}
+\subsection{Fune appesa 2.1}
+La fune è appesa dall'alto e penzola verso il basso sotto
+l'effetto della forza di gravità. La fune ha lunghezza $L$ e densità lineare $\rho$. Per trovare la tensione, basta 
+prendere un frammento di corda $dl$, tale frammento è sotto l'effetto di tre forze: 
+la forza peso $dl\rho g$, la tensione nel punto $l$ $T(l)$ e la tensione nella punto finale $T(l+dl)$.
+Ogni frammento è in equilibrio.
+\begin{equation}
+    \begin{aligned}
+        dl\rho g + T(l+dl) &= T(l) \\
+        T(l+dl) - T(l) &= -dl\rho g \\
+        T'(l) &= -\rho g \\
+        T(l) &= -l\rho g \\
+    \end{aligned}
+\end{equation}
+
+\subsection{Fune attorno a un polo p.26}
+Una fune è tesa lungo a uno spicchio di circonferenza di angolo $\theta$, si applica una tensione $T_0$ a un estremo.
+L'altra parte è attaccata a un oggetto pesante inamovibile, come una barca. Pongo il coefficiente di attrito statico $\mu$, calcolare 
+la massima forza che si esercita sulla barca. \\
+Poniamo un angolo $d\theta$, la fune su questo arco ha una tensione $T$ e la reazione vincolare di $N_{d\theta}$. Questa
+forza bilancia le componenti interne della tensione $T \sin{d\theta /2}$.
+Per angoli piccoli possiamo dire che $N_{d\theta} = Td\theta$. La forza di attrito agisce tangenzialmente alla fune grazie a questa componente normale.
+
+\begin{equation}
+    \begin{aligned}
+        T(\theta + d\theta) &\le T(\theta) + \mu T d\theta \\
+        dT &\le \mu T d \theta \\
+        \ln{T} &\le \mu \theta + C \\
+        T &\le T_0 e^{\mu \theta}
+    \end{aligned}
+\end{equation}
+
+\subsection{Catenaria 2.8}
+Considero il tratto $ds$ come un punto materiale. Chiamo il punto della catenaria in $s$ $P(s)$, dove s è l'arco della catenaria.
+La forza peso in ogni tratto è $ds \rho g$ chiamo $\rho g = F$ quindi per ogni punto si ha.
+Sappiamo che $T(0) = f_A , T(l) = f_b$
+\begin{equation}
+    \begin{aligned}
+        Fds + T(s+ds) - T(s) &= 0 \\
+        Fds + dT &= 0 \\
+        -\frac{dT}{ds} &= F
+    \end{aligned}
+\end{equation}
+Ora, $T(s)$ è di direzione tangente alla curva, quindi rispetto alle coordinate cartesiane, è in direzione $(\frac{dx}{ds}, \frac{dy}{ds})$
+\begin{equation}
+    \begin{cases}
+        \displaystyle -\frac{d}{ds}\left(T(s)\frac{dx}{ds}\right) = 0 \\ \\
+        \displaystyle \frac{d}{ds}\left(T(s)\frac{dy}{ds}\right) = 0
+    \end{cases}
+    \begin{cases}
+        \displaystyle T(s)\frac{dx}{ds} = \phi \\ \\
+        \displaystyle T(s)\frac{dy}{ds} = F
+    \end{cases}
+\end{equation}
+Sostituendo
+\begin{equation}
+    \displaystyle \frac{d}{ds} \left(\frac{dy}{dx}\right) = \frac{F}{\phi}
+\end{equation}
+Un segmento $ds = dx \sqrt{1 + y'^2}$ e $\alpha = \rho g / \phi$
+\begin{equation}
+    \displaystyle \frac{dy'}{\sqrt{1 + y'^2}} = \alpha dx
+\end{equation}
+Risolvendo per per $y'$ e integrando risulta
+\begin{equation}
+    y(x) = \frac{1}{\alpha} \cosh(\alpha x)
+\end{equation}
+
+\subsection{Balancing the stick 2.16}
+Un bastone semi-infinito ha la proprietà che in qualsiasi punto venga tagliato il resto del bastone 
+riesce a stare in equilibrio se posto un cuneo a una distanza $l$ da dove viene tagliato.
+Definiamo $\rho(x)$ la densità lineare della sbarra nel punto $x$ e $M(x)$ la massa della stessa fino ad x. 
+Avremo quindi $M(0) = 0$ $M(+\infty) = M$ $\rho(x) = \frac{dM(x)}{dx}$
+A questo punto calcoliamo il centro di massa, che deve coincidere con $l$.
+\begin{equation}
+    \begin{aligned}
+        l &= \frac{ \int_{0}^{+\infty} \rho(x) x \,dx }{ \int_{0}^{+\infty} \rho(x) \,dx }\\
+         &= \frac{ \int_{0}^{+\infty} \rho(x) x \,dx }{M}
+    \end{aligned}
+\end{equation}
+
+Ciò deve diventare $l+d$, quando taglio di $d$ la sbarra
+\begin{equation}
+    \begin{aligned}
+        l + d &= \frac{ \int_{0}^{+\infty} \rho(x) x \,dx - \int_{0}^{d} \rho(x) x \,dx }{  \int_{0}^{+\infty} \rho(x) \,dx - \int_{0}^{d} \rho(x) \,dx }\\
+         &= \frac{ Ml - \int_{0}^{d} \rho(x) x \,dx }{M -  \int_{0}^{d} \rho(x) \,dx }
+    \end{aligned}
+\end{equation}
+Ora possiamo moltiplicare e applicare gli integrali per parti sull'integrando $\rho(x) x$, ricordando che $\rho(x)$ è la derivata della funzione $M(x)$
+\begin{equation}
+    \begin{aligned}
+        (M -  M(d) )(l + d) &=  Ml - (|M(x)x|_0^{d} - \int_{0}^{d} M(x) \,dx) \\
+        Ml + Md - M(d)l - M(d)d &=  Ml - M(d)d + \int_{0}^{d} M(x) \,dx \\
+        Md - M(d)l &= \int_{0}^{d} M(x) \,dx \\
+    \end{aligned}
+\end{equation}
+L'ultima è un equazione differenziale, con soluzione
+\begin{equation}
+    M(d) = M(1 - e^{-d/l})
+\end{equation}
+Derivando, e cambiando la variabile con $x$ si trova l'espressione della densità
+\begin{equation}
+    \rho(x) = \frac{M}{l} e^{-x/l}
+\end{equation}
+\end{document}

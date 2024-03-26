@@ -1,0 +1,7 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Statica}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Fune appesa 2.1}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Fune attorno a un polo p.26}{2}{}%
+\contentsline {subsection}{\numberline {1.3}Catenaria 2.8}{2}{}%
+\contentsline {subsection}{\numberline {1.4}Balancing the stick 2.16}{3}{}%
